@@ -1,6 +1,15 @@
+use newsapi::{get_articles, Articles};
+use colour::{dark_green_ln, yellow_ln};
 use std::error::Error;
 
 
+
+fn render_articles(articles: &Articles) {
+    for i in &articles.articles {
+        dark_green_ln!("> {}", i.title);
+        yellow_ln!("> {}\n\n", i.url);
+    }
+}
 
 fn main() -> Result<(), Box<dyn Error>> {
 
