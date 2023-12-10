@@ -1,6 +1,6 @@
 use std::error::Error;
 
-use colour::{dark_green, yellow};
+use colour::{dark_green_ln, yellow_ln};
 use serde::Deserialize;
 
 
@@ -28,8 +28,8 @@ fn get_articles(url: &str) -> Result<Articles, Box<dyn Error>> {
 
 fn render_articles(articles: &Articles) {
     for i in &articles.articles {
-        dark_green!("> {}\n", i.title);
-        yellow!("> {}\n", i.url);
+        dark_green_ln!("> {}", i.title);
+        yellow_ln!("> {}\n\n", i.url);
     }
 }
 
